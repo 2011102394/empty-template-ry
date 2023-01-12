@@ -41,13 +41,6 @@ export default defineConfig(({ mode, command }) => {
           entryFileNames: 'static/js/[name]-[hash].js',
           assetFileNames: 'static/assets/[name]-[hash].[ext]'
         }
-      },
-      // 清除项目中的console和debugger
-      terserOptions: {
-        compress: {
-          drop_console: true,
-          drop_debugger: true
-        }
       }
     }
   }
