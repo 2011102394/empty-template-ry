@@ -8,7 +8,8 @@
 } */
 @font-face {
   font-family: '思源黑体 Light';
-  src: url('@/assets/fonts/Source_Han_Sans_SC_Light_Light.otf') format('opentype');
+  src: url('@/assets/fonts/Source_Han_Sans_SC_Light_Light.otf')
+    format('opentype');
   font-display: swap;
 }
 /* @font-face {
