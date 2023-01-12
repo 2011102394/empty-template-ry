@@ -1,4 +1,10 @@
 <template>
-  <router-view />
+  <el-config-provider :locale="locale">
+    <router-view />
+  </el-config-provider>
 </template>
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+// 设置element-plus 中文
+import zhCn from 'element-plus/lib/locale/lang/zh-cn'
+const locale = ref(zhCn)
+</script>
