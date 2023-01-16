@@ -2,6 +2,8 @@
 
 // * 首页地址（默认）
 export const HOME_URL = '/home'
+// * 示例地址（默认）
+export const EXAMPLES_URL = '/examples'
 
 // * 登录页地址（默认）
 export const LOGIN_URL = '/login'

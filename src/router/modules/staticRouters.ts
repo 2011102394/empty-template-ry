@@ -1,17 +1,24 @@
 import { RouteRecordRaw } from 'vue-router'
-import { HOME_URL } from '@/config'
+import { EXAMPLES_URL } from '@/config'
 
 /**
  * staticRouter(静态路由)
  */
 export const staticRouter: RouteRecordRaw[] = [
   {
+    name: '根页面',
     path: '/',
-    redirect: HOME_URL
+    redirect: EXAMPLES_URL
   },
   {
+    name: '首页',
     path: '/home',
     component: () => import('@/views/home/index.vue')
+  },
+  {
+    name: '示例页面',
+    path: '/examples',
+    component: () => import('@/views/examples/index.vue')
   }
 ]
 
