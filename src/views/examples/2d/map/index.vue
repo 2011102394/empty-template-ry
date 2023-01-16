@@ -5,15 +5,40 @@
  -->
 <template>
   <div class="map-2d-container">
-    <arsc-2d-map />
+    <arsc-2d-map @mapInited="handleMapInited" :initOptions="option" />
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import Map from 'ol/Map'
+import { MapInitOption } from '@/components/2d/types'
+import { MAP_TDT_KEY } from '@/config'
+const option: MapInitOption = {
+  zoom: 4,
+  proj: 'EPSG:3857',
+  requireTDTBaseLayer: true,
+  tdtType: '影像',
+  tk: MAP_TDT_KEY
+}
+
+const handleMapInited = (map: Map) => {
+  console.log(map)
+}
+</script>
 
 <style lang="scss" scoped>
 .map-2d-container {
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  .left-pan {
+    height: 100%;
+    width: 50%;
+  }
+  .right-pan {
+    height: 100%;
+    width: 50%;
+  }
 }
 </style>

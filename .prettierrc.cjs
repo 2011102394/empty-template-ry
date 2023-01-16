@@ -4,5 +4,6 @@ module.exports = {
   trailingComma: 'none', // 多行时尽可能使用逗号结尾
   endOfLine: 'auto',
   // 根据显示样式决定 html 要不要折行
-  htmlWhitespaceSensitivity: 'ignore'
+  htmlWhitespaceSensitivity: 'ignore',
+  
 }

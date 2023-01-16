@@ -26,6 +26,7 @@ module.exports = {
     // 组件名不能是单个单词
     'vue/multi-word-component-names': 0,
     'no-undef': 0,
-    '@typescript-eslint/no-explicit-any': ['off']
+    '@typescript-eslint/no-explicit-any': ['off'],
+    '@typescript-eslint/no-non-null-assertion': 0
   }
 }

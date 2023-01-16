@@ -9,24 +9,20 @@
 
 <script lang="ts" setup>
 import 'ol/ol.css'
-import Map from 'ol/Map'
-import OSM from 'ol/source/OSM'
-import TileLayer from 'ol/layer/Tile'
-import View from 'ol/View'
+import { MapInitOption } from '../../types'
+import { mapInit } from '../../utils/mapUtil'
+interface IProps {
+  /** 初始化参数 */
+  initOptions: MapInitOption
+}
+const props = defineProps<IProps>()
+const emits = defineEmits(['mapInited'])
+// 地图容器
 const mapDom = ref<HTMLElement>()
 onMounted(() => {
-  const map = new Map({
-    target: mapDom.value,
-    layers: [
-      new TileLayer({
-        source: new OSM()
-      })
-    ],
-    view: new View({
-      center: [0, 0],
-      zoom: 2
-    })
-  })
+  const map = mapInit(mapDom.value, { ...props.initOptions })
+  // 地图初识化完毕，返回map实例对象
+  emits('mapInited', map)
 })
 </script>
 

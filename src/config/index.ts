@@ -16,3 +16,6 @@ export const ROUTER_WHITE_LIST = ['/500']
 
 // * 高德地图 key
 export const MAP_KEY = ''
+
+// 天地图key
+export const MAP_TDT_KEY = 'd4a3ea97540bebbd2c400faaeed26986'
