@@ -4,6 +4,7 @@ html {
 }
 body {
   margin: 0px;
+  height: 100%;
 }
 
 *,
@@ -23,6 +24,10 @@ a:hover {
   cursor: pointer;
   color: inherit;
   text-decoration: none;
+}
+
+#app{
+  height: 100%;
 }
 
 /* 滚动条的样式优化 */
