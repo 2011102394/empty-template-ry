@@ -8,5 +8,15 @@ export const exampleList = [
         url: '/examples/ui/chooseArea'
       }
     ]
+  },
+  {
+    title: '2D地图组件',
+    name: '2dMap',
+    children: [
+      {
+        title: '地图',
+        url: '/examples/2d/map'
+      }
+    ]
   }
 ]

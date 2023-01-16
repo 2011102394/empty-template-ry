@@ -7,5 +7,10 @@ export const exampleRouter: RouteRecordRaw[] = [
     name: '区域选择器',
     path: '/examples/ui/chooseArea',
     component: () => import('@/views/examples/ui/chooseArea/index.vue')
+  },
+  {
+    name: '2d地图',
+    path: '/examples/2d/map',
+    component: () => import('@/views/examples/2d/map/index.vue')
   }
 ]
