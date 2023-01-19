@@ -11,12 +11,11 @@ import {
   showFullScreenLoading,
   tryHideFullScreenLoading
 } from '@/config/serviceLoading'
-import { ResultData } from './interface'
 import router from '@/router'
 
 const config: AxiosRequestConfig = {
   // 默认请求地址
-  baseURL: import.meta.env.BASE_URL,
+  baseURL: import.meta.env.VITE_APP_BASE_API,
   // 设置超时时间
   timeout: ResultEnum.TIMEOUT as number,
   // 跨域时候允许携带凭证
@@ -56,7 +55,7 @@ class RequestHttp {
           return Promise.reject(data)
         }
         // * 成功请求（在页面上除非特殊情况，否则不用处理失败逻辑）
-        return data
+        return Promise.resolve(data.data)
       },
       async (error: AxiosError) => {
         const { response } = error
@@ -73,16 +72,16 @@ class RequestHttp {
     )
   }
   // * 常用请求方法封装
-  get<T>(url: string, params?: object, _object = {}): Promise<ResultData<T>> {
+  get<T>(url: string, params?: object, _object = {}): Promise<T> {
     return this.service.get(url, { params, ..._object })
   }
-  post<T>(url: string, params?: object, _object = {}): Promise<ResultData<T>> {
+  post<T>(url: string, params?: object, _object = {}): Promise<T> {
     return this.service.post(url, params, _object)
   }
-  put<T>(url: string, params?: object, _object = {}): Promise<ResultData<T>> {
+  put<T>(url: string, params?: object, _object = {}): Promise<T> {
     return this.service.put(url, params, _object)
   }
-  delete<T>(url: string, params?: any, _object = {}): Promise<ResultData<T>> {
+  delete<T>(url: string, params?: any, _object = {}): Promise<T> {
     return this.service.delete(url, { params, ..._object })
   }
   download(url: string, params?: object, _object = {}): Promise<BlobPart> {
