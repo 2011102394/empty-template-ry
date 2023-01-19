@@ -35,6 +35,7 @@ export default defineConfig(({ mode, command }) => {
     },
     // 项目打包相关配置
     build: {
+      assetsDir: './',
       rollupOptions: {
         output: {
           chunkFileNames: 'static/js/[name]-[hash].js',
