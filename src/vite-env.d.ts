@@ -5,3 +5,7 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, unknown>
   export default component
 }
+
+interface ImportMetaEnv {
+  VITE_CESIUM_BASE_URL: string
+}

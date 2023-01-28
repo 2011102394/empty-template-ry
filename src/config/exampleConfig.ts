@@ -22,5 +22,15 @@ export const exampleList = [
         url: '/examples/2d/baseLayerSwitch'
       }
     ]
+  },
+  {
+    title: '3D地图组件',
+    name: '3dMap',
+    children: [
+      {
+        title: '地图',
+        url: '/examples/3d/map'
+      }
+    ]
   }
 ]
