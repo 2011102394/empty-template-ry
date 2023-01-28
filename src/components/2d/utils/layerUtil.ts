@@ -1,9 +1,11 @@
 import { getWidth, getTopLeft } from 'ol/extent'
 import WMTS from 'ol/tilegrid/WMTS'
 import { WMTS as WMTSSource } from 'ol/source'
-import WebglTileLayer from 'ol/layer/WebGLTile'
+import TileLayer from 'ol/layer/Tile'
 import { get as getProjection, getTransform } from 'ol/proj'
 import { applyTransform } from 'ol/extent'
+import Map from 'ol/Map'
+import BaseLayer from 'ol/layer/Base'
 /**
  * @type 天地图投影类型
  */
@@ -80,9 +82,26 @@ export const createTDTLayer = (type: TDT_TYPE, proj: TDT_PROJ, key: string) => {
     style: 'default',
     tileGrid: wmtsTileGrid
   })
-  const wmtsLayer = new WebglTileLayer({
+  const wmtsLayer = new TileLayer({
     source: wmtsSource
   })
   wmtsLayer.set('id', layers[type])
   return wmtsLayer
+}
+
+/**
+ * 根据id获取对应图层
+ * @param {Map} map map实例对象
+ * @param {string} id 图层id
+ * @returns {Layer | undefined}  获取的图层对象
+ */
+export const findLayerById = (map: Map, id: string): BaseLayer | undefined => {
+  const layers = map.getLayers()
+  let layer
+  layers.forEach((item) => {
+    if (item.get('id') === id) {
+      layer = item
+    }
+  })
+  return layer
 }

@@ -1,4 +1,4 @@
-import { MapInitOption } from '../types'
+import { MapInitOption } from '../Map/types'
 import Map from 'ol/Map'
 import View from 'ol/View'
 import { fromLonLat } from 'ol/proj'

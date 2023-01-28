@@ -11,10 +11,10 @@
 
 <script lang="ts" setup>
 import Map from 'ol/Map'
-import { MapInitOption } from '@/components/2d/types'
 import { MAP_TDT_KEY } from '@/config'
-const option: MapInitOption = {
-  zoom: 4,
+
+const option = {
+  zoom: 8,
   proj: 'EPSG:3857',
   requireTDTBaseLayer: true,
   tdtType: '影像',

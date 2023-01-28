@@ -9,7 +9,7 @@
 
 <script lang="ts" setup>
 import 'ol/ol.css'
-import { MapInitOption } from '../../types'
+import { MapInitOption } from '../types'
 import { mapInit } from '../../utils/mapUtil'
 interface IProps {
   /** 初始化参数 */
