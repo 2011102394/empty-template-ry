@@ -5,7 +5,9 @@
  -->
 <template>
   <div class="map-widget-container">
-    <arsc-2d-map @mapInited="handleMapInited" :initOptions="option" />
+    <div class="map-content">
+      <arsc-2d-map @mapInited="handleMapInited" :initOptions="option" />
+    </div>
     <div class="widget-content" v-if="map">
       <div class="widget-item">
         <arsc-2d-map-zoom :map="map" />
@@ -20,6 +22,9 @@
         <arsc-2d-map-grid :map="map" :lineColor="'#1890ff'" :lineWidth="1.5" />
       </div>
       <div class="widget-item"></div>
+    </div>
+    <div class="position-bar">
+      <arsc-2d-position-bar />
     </div>
   </div>
 </template>
@@ -122,12 +127,19 @@ const handleLayerSwitch = (id: string) => {
   .widget-content {
     position: absolute;
     right: 20px;
-    bottom: 20px;
+    bottom: 30px;
     display: flex;
     flex-direction: column;
     .widget-item {
       margin-top: 10px;
     }
+  }
+  .position-bar {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 20px;
   }
 }
 </style>
