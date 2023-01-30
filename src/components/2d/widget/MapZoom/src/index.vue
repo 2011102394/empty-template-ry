@@ -4,7 +4,7 @@
     @date 2023-01-30 10:34:11
  -->
 <template>
-  <div class="zoom-container">
+  <div class="widget-zoom-container">
     <div class="zoom-in" @click="handleZoom('plus')" title="放大">
       <img src="../../img/zoom-in.png" alt="" />
     </div>
@@ -29,7 +29,7 @@ const handleZoom = (type: 'plus' | 'subtract') => {
 </script>
 
 <style lang="scss" scoped>
-.zoom-container {
+.widget-zoom-container {
   width: 32px;
   display: flex;
   flex-direction: column;

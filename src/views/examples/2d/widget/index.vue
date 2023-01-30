@@ -7,8 +7,6 @@
   <div class="map-widget-container">
     <arsc-2d-map @mapInited="handleMapInited" :initOptions="option" />
     <div class="widget-content" v-if="map">
-      <div class="widget-item"></div>
-      <div class="widget-item"></div>
       <div class="widget-item">
         <arsc-2d-map-zoom :map="map" />
       </div>
@@ -18,6 +16,10 @@
           @handleSwitch="handleLayerSwitch"
         />
       </div>
+      <div class="widget-item">
+        <arsc-2d-map-grid :map="map" :lineColor="'#1890ff'" :lineWidth="1.5" />
+      </div>
+      <div class="widget-item"></div>
     </div>
   </div>
 </template>

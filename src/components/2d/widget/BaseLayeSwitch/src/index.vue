@@ -4,7 +4,7 @@
     @date 2023-01-28 10:13:03
  -->
 <template>
-  <div class="base-layer-switch-container">
+  <div class="widget-base-layer-switch-container">
     <div class="layer-switch-pan" v-if="showInfo">
       <div
         :class="['layer-item', layerItem.active ? 'active' : '']"
@@ -53,7 +53,7 @@ const handleLayerSwitch = (id: string) => {
 </script>
 
 <style lang="scss" scoped>
-.base-layer-switch-container {
+.widget-base-layer-switch-container {
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -95,8 +95,14 @@ const handleLayerSwitch = (id: string) => {
   .layer-switch-btn {
     background-color: #fff;
     border-radius: 4px;
-    height: 34px;
-
+    height: 32x;
+    width: 32px;
+    text-align: center;
+    padding-top: 6px;
+    img {
+      height: 18px;
+      width: 18px;
+    }
     :hover {
       cursor: pointer;
     }
