@@ -5,17 +5,25 @@
  -->
 <template>
   <div class="base-layer-switch-container">
-    <div
-      :class="['layer-item', layerItem.active ? 'active' : '']"
-      v-for="layerItem in layers"
-      :key="layerItem.id"
-      :title="layerItem.title"
-      @click="handleLayerSwitch(layerItem.id)"
-    >
-      <div class="item-title">{{ layerItem.title }}</div>
-      <div class="item-thumb">
-        <img :src="layerItem.thumb" alt="" />
+    <div class="layer-switch-pan" v-if="showInfo">
+      <div
+        :class="['layer-item', layerItem.active ? 'active' : '']"
+        v-for="layerItem in layers"
+        :key="layerItem.id"
+        :style="`background-image: url(${layerItem.thumb});`"
+        @click="handleLayerSwitch(layerItem.id)"
+      >
+        <div class="layer-label">
+          {{ layerItem.title }}
+        </div>
       </div>
+    </div>
+    <div
+      class="layer-switch-btn"
+      @click="showInfo = !showInfo"
+      title="底图切换"
+    >
+      <img src="./img/layer-switch.png" alt="" />
     </div>
   </div>
 </template>
@@ -38,6 +46,7 @@ interface IProps {
 }
 defineProps<IProps>()
 const emits = defineEmits(['handleSwitch'])
+const showInfo = ref(true)
 const handleLayerSwitch = (id: string) => {
   emits('handleSwitch', id)
 }
@@ -48,31 +57,49 @@ const handleLayerSwitch = (id: string) => {
   height: 100%;
   display: flex;
   flex-direction: row;
-  .layer-item {
+  align-items: flex-end;
+  .layer-switch-pan {
+    width: 250px;
+    padding: 10px;
+    background-color: #fff;
+    margin-right: 10px;
+    border-radius: 4px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    margin-left: 20px;
-    .item-title {
-      width: 100%;
-      text-align: center;
-      background-color: #fff;
-      font-size: 12px;
-    }
-    .item-thumb {
-      height: 48px;
-      img {
-        height: 48px;
-        width: 48px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-height: 220px;
+    overflow-y: auto;
+    .layer-item {
+      position: relative;
+      width: 30%;
+      height: 56px;
+      .layer-label {
+        height: 18px;
+        font-size: 12px;
+        text-align: center;
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        width: auto;
+        overflow: hidden;
+        color: #fff;
+        background: rgba(0, 173, 181, 0.5);
       }
     }
-    &:hover {
-      cursor: pointer;
+    .active {
+      border: 2px solid #1890ff;
     }
   }
-  .active {
-    border: 1px solid #1890ff;
-    color: #1890ff;
+  .layer-switch-btn {
+    background-color: #fff;
+    border-radius: 4px;
+    height: 34px;
+
+    :hover {
+      cursor: pointer;
+    }
   }
 }
 </style>

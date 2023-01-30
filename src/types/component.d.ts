@@ -12,7 +12,9 @@ declare module '@vue/runtime-core' {
     ElCollapseItem: typeof import('element-plus/es')['ElCollapseItem']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElOption: typeof import('element-plus/es')['ElOption']
+    ElPopover: typeof import('element-plus/es')['ElPopover']
     ElSelect: typeof import('element-plus/es')['ElSelect']
+    ElTooltip: typeof import('element-plus/es')['ElTooltip']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
