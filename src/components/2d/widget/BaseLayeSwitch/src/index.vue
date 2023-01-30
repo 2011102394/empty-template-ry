@@ -23,7 +23,7 @@
       @click="showInfo = !showInfo"
       title="底图切换"
     >
-      <img src="./img/layer-switch.png" alt="" />
+      <img src="../../img/layer-switch.png" alt="" />
     </div>
   </div>
 </template>
@@ -46,7 +46,7 @@ interface IProps {
 }
 defineProps<IProps>()
 const emits = defineEmits(['handleSwitch'])
-const showInfo = ref(true)
+const showInfo = ref(false)
 const handleLayerSwitch = (id: string) => {
   emits('handleSwitch', id)
 }

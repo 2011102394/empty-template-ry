@@ -18,8 +18,8 @@ export const exampleList = [
         url: '/examples/2d/map'
       },
       {
-        title: '底图切换组件',
-        url: '/examples/2d/baseLayerSwitch'
+        title: '地图小组件',
+        url: '/examples/2d/widget'
       }
     ]
   },

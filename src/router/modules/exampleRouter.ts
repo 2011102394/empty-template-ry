@@ -14,9 +14,9 @@ export const exampleRouter: RouteRecordRaw[] = [
     component: () => import('@/views/examples/2d/map/index.vue')
   },
   {
-    name: '底图切换',
-    path: '/examples/2d/baseLayerSwitch',
-    component: () => import('@/views/examples/2d/baseLayerSwitch/index.vue')
+    name: '地图小组件',
+    path: '/examples/2d/widget',
+    component: () => import('@/views/examples/2d/widget/index.vue')
   },
   {
     name: '3d地图',

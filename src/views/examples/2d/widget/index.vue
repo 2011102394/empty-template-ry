@@ -4,13 +4,20 @@
     @date 2023-01-28 09:24:18
  -->
 <template>
-  <div class="base-layer-switch-container">
+  <div class="map-widget-container">
     <arsc-2d-map @mapInited="handleMapInited" :initOptions="option" />
-    <div class="layer-switch" v-if="map">
-      <arsc-2d-base-layer-switch
-        :layers="layersRef"
-        @handleSwitch="handleLayerSwitch"
-      />
+    <div class="widget-content" v-if="map">
+      <div class="widget-item"></div>
+      <div class="widget-item"></div>
+      <div class="widget-item">
+        <arsc-2d-map-zoom :map="map" />
+      </div>
+      <div class="widget-item">
+        <arsc-2d-base-layer-switch
+          :layers="layersRef"
+          @handleSwitch="handleLayerSwitch"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -107,13 +114,18 @@ const handleLayerSwitch = (id: string) => {
 </script>
 
 <style lang="scss" scoped>
-.base-layer-switch-container {
+.map-widget-container {
   position: relative;
   height: 100%;
-  .layer-switch {
+  .widget-content {
     position: absolute;
     right: 20px;
     bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    .widget-item {
+      margin-top: 10px;
+    }
   }
 }
 </style>
